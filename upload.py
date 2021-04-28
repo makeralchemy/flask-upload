@@ -2,9 +2,14 @@ from flask import Flask, render_template, request, redirect, url_for, abort
 import os
 
 app = Flask(__name__)
-app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024  # 10 MB
-app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
 app.config['UPLOAD_PATH'] = 'uploads'
+app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024  # 10 MB
+app.config['UPLOAD_EXTENSIONS'] = [ '.jpg', '.png', '.gif'
+                                  , '.pdf', '.csv'
+                                  , '.xls', '.xlsx'
+                                  , '.doc', '.docx'
+                                  , '.ppt', '.pptx'
+                                  ]
 
 @app.route('/')
 def index():
